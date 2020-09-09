@@ -7,4 +7,5 @@ for a in A:
         GIS.append(a)
         previous_g = a
 
+print(len(GIS))
 print(GIS)
