@@ -3,9 +3,6 @@
 Author: Sherisse Tan
 
 ## Folder directory
-1. Simple
-    - aaah
-    - statistics
-2. Moderate
-    - greedilyIncreasing
-3. bigBrains
+1. weeklyChallenges
+	- 14Sep_Arrays
+	- 22Sep_Stacks
