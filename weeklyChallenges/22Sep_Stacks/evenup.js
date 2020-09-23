@@ -13,9 +13,27 @@ rl.on('line', (line) => {
 	else {return}
 
 	var end = true;
-	while(end) {
+	loopCount = 0;
+	while(loopCount <= (numArr.length / 2)) {
+		var originalLen = numArr.length;
+
 		for (i = 0; i < numArr.length; i++) {
-			
+			current = numArr[i] % 2 == 0 ? 'even' : 'odd'
+			next = numArr[i + 1] % 2 == 0 ? 'even' : 'odd'
+
+			if (current == next) {
+				console.log(numArr)
+				delete numArr[i]
+				delete numArr[i + 1];
+				break;
+			}
+		}
+	
+		if (originalLen > numArr.length) {
+			loopCount = 0
 		}	
-	}
+		else {loopCount++}
+	};
+
+//	console.log(numArr)
 });
