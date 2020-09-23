@@ -18,8 +18,11 @@ rl.on('line', (line) => {
 		var originalLen = numArr.length;
 
 		for (i = 0; i < numArr.length; i++) {
-			current = numArr[i] % 2 == 0 ? 'even' : 'odd'
-			next = numArr[i + 1] % 2 == 0 ? 'even' : 'odd'
+			current = Math.abs(numArr[i]) % 2 == 0 ? 'even' : 'odd'
+			next = Math.abs(numArr[i + 1]) % 2 == 0 ? 'even' : 'odd'
+
+			if (current == NaN) {current = even}
+			if (next == NaN) {next = even}
 
 			if (current == next) {
 				numArr.splice(i, 2);
@@ -31,7 +34,7 @@ rl.on('line', (line) => {
 			loopCount = 0
 		}	
 		else {loopCount++}
-	};
+	}
 
 	console.log(numArr.length)
 });
