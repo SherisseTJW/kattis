@@ -7,10 +7,8 @@ const rl = readline.createInterface({
 
 rl.on('line', (line) => {
 	// line.split(' ').length == 0 then line = 1
-	if (line.split(' ').length > 1) {
-		numArr = line.split(' ')
-	}
-	else {return}
+	var numArr = line.split(' ');
+	if (numArr.length <= 1) {return};
 
 	var end = true;
 	loopCount = 0;
@@ -21,8 +19,11 @@ rl.on('line', (line) => {
 			current = Math.abs(numArr[i]) % 2 == 0 ? 'even' : 'odd'
 			next = Math.abs(numArr[i + 1]) % 2 == 0 ? 'even' : 'odd'
 
-			if (current == NaN) {current = even}
-			if (next == NaN) {next = even}
+			console.log(current)
+			console.log(next)
+
+			if (numArr[i] == 0) {current = 'even'}
+			if (numArr[i + 1] == 0 && numArr[i + 1] != undefined) {next = 'even'}
 
 			if (current == next) {
 				numArr.splice(i, 2);
@@ -35,6 +36,5 @@ rl.on('line', (line) => {
 		}	
 		else {loopCount++}
 	}
-
 	console.log(numArr.length)
 });
