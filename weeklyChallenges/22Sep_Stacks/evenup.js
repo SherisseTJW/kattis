@@ -22,9 +22,7 @@ rl.on('line', (line) => {
 			next = numArr[i + 1] % 2 == 0 ? 'even' : 'odd'
 
 			if (current == next) {
-				console.log(numArr)
-				delete numArr[i]
-				delete numArr[i + 1];
+				numArr.splice(i, 2);
 				break;
 			}
 		}
@@ -35,5 +33,5 @@ rl.on('line', (line) => {
 		else {loopCount++}
 	};
 
-//	console.log(numArr)
+	console.log(numArr.length)
 });
