@@ -20,27 +20,28 @@ rl.on('line', (line) => {
             var currentVal = numArr[i];            
 
             if (numStack.length == 0) {
-                numStack[0] = currentVal;
-                numArr = numArr.slice(1, numArr.length);
+				var stackVal = numArr.shift();
+                numStack[0] = stackVal;
                 break;
             }
-         
+         	
             var top_stackVal = numStack[numStack.length - 1];
-
+			numArr.shift() // Regardless of whether sum == even, remove the first element in arr
+			
+			
+			console.log(currentVal)
             if ((top_stackVal + currentVal) % 2 == 0) {
                 // Remove the last element from the stack
-                numStack = numStack.slice(0, numStack.length - 1);
-                console.log(numStack)
-
-                // Remove the first element from the array
-                numArr = numArr.slice(1, numArr.length - 1);
+				numStack.pop();
 
                 // Break out of the for loop to repeat it from the top
                 break;
             }
 
-            stackIndex = numStack.length
-            numStack[stackIndex] = currentVal;
+			else {
+	            stackIndex = numStack.length - 1;
+    	        numStack[stackIndex] = currentVal;
+			}
 
             // Exit condition -> iterate through the entire arr
             if (i == numArr.length - 1) {
@@ -49,5 +50,5 @@ rl.on('line', (line) => {
         }; // End of for loop
     }; // End of while loop
 
-    console.log(numArr.length)
+    console.log(numStack.length)
 })
